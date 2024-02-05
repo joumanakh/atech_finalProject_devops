@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ngnix-ingress
+  namespace: joumanakh-k8s
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - joumanakh.atech-bot.click
+      secretName: tls-secret
+
+  rules:
+    - host: joumanakh.atech-bot.click
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: polybot-service
+                port:
+                  number: 8443

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolo5-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yolo5
+  template:
+    metadata:
+      labels:
+        app: yolo5
+    spec:
+      containers:
+      - name: yolo5-container
+        image: joumanakh/yolo5image1-aws:11
+        env:
+        - name: BUCKET_NAME
+          value: joumanakhbucket
+        - name: SQS_QUEUE_NAME
+          value: joumanakh_queue
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "50m"
