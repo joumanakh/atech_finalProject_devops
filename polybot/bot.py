@@ -1,4 +1,3 @@
-                                                                                                                                                                  bot.py                                                                                                                                                                              
 import json
 import telebot
 from loguru import logger
