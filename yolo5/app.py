@@ -134,7 +134,7 @@ def consume():
                 dynamodb_client.put_item(TableName=dynamodb_table_name, Item=prediction_summary)
 
                 # TODO perform a GET request to Polybot to `/results` endpoint
-                url = f'http://joumanakh-loadbalancer-1797806028.eu-north-1.elb.amazonaws.com:80/results?chat_id={chat_id}&prediction_id={prediction_id}'
+                url = f'http://polybot-service:80/results?chat_id={chat_id}&prediction_id={prediction_id}'
                 print(url)
                 print("woooooooooooooooooowwwwuuuuuuuurlllll")
                 requests.get(url)
